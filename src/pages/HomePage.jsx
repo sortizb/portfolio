@@ -22,6 +22,46 @@ function HomePage() {
         }
     ]
 
+    let skill_categories = [
+        {
+            category: "Frontend",
+            skills: ["HTML", "CSS", "JavaScript", "React"]
+        },
+        {
+            category: "Backend",
+            skills: ["Node.js", "Express", "Python", "Flask"]
+        },
+        {
+            category: "Database",
+            skills: ["MongoDB", "MySQL", "PostgreSQL"]
+        },
+        {
+            category: "DevOps",
+            skills: ["Docker", "Kubernetes", "AWS"]
+        }
+    ]
+
+    let resumes = [
+        "Software Engineer Resume",
+        "Cybersecurity Resume",
+        "Artifitial Intelligence Resume"
+    ]
+
+    let contact_links = [
+        {
+            name: "Email",
+            url: "myemail@gmail.com"
+        },
+        {
+            name: "LinkedIn",
+            url: "https://www.linkedin.com/in/myprofile"
+        },
+        {
+            name: "GitHub",
+            url: "mygithub"
+        }
+    ]
+
 
     return (
         <div id='home-page' className="bg-dark flex flex-col w-11/12 h-full rounded-lg shadow-lg text-primary p-8 overflow-x-hidden">
@@ -36,6 +76,66 @@ function HomePage() {
                         tags={project.tags} 
                     />
                 ))}
+            </section>
+            <section id="skills-section" className="grid grid-cols-3 gap-4 mt-8">
+                <h1 className="text-4xl text-primary mb-4 col-span-3">Skills</h1>
+                {skill_categories.map((category, index) => (
+                    <div key={index} className="bg-card p-4 rounded-lg shadow-md">
+                        <h2 className="text-xl font-bold mb-2">{category.category}</h2>
+                        <ul className="list-disc pl-5">
+                            {category.skills.map((skill, skillIndex) => (
+                                <li key={skillIndex} className="text-primary">{skill}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </section>
+            <section id="resumes-section" className="flex flex-col gap-4 mt-8">
+                <h1 className="text-4xl text-primary mb-4">Resumes</h1>
+                <div className="grid grid-cols-3 gap-4">
+                    {resumes.map((resume, index) => (
+                        <div key={index} className="bg-card p-4 rounded-lg shadow-md">
+                            <h2 className="text-xl text-thirtiary">{resume}</h2>
+                        </div>
+                    ))}
+                </div>
+            </section>
+            <section id="contact-section" className="grid grid-cols-2 gap-2 mt-8">
+                <div className="flex flex-col">
+                    <h1 className="text-4xl text-primary mb-4">Contact</h1>
+                    {contact_links.map((link, index) => (
+                        <a 
+                            key={index} 
+                            href={link.url} 
+                            className="text-secondary text-lg"
+                        >
+                            {link.name}
+                        </a>
+                    ))}
+                </div>
+                <div className="flex flex-col">
+                    <h2 className="text-4xl text-primary mb-4">Email</h2>
+                    <form action={console.log("email sent")}>
+                        <input 
+                            type="text"
+                            placeholder="Your Name"
+                            className="bg-card text-secondary p-2 rounded-lg mb-2 w-full"
+                        ></input>
+                        <input
+                            type="email"
+                            placeholder="Your Email"
+                            className="bg-card text-secondary p-2 rounded-lg mb-2 w-full"
+                        ></input>
+                        <textarea
+                            placeholder="Your Message"
+                            className="bg-card text-secondary p-2 rounded-lg mb-2 w-full"
+                        ></textarea>
+                        <button 
+                            type="submit" 
+                            className="bg-tag text-secondary p-2 rounded-lg"
+                        >Submit</button>
+                    </form>
+                </div>
             </section>
         </div>
     )
