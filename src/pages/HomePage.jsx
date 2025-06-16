@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import ProjectCard from "../components/ProjectCard";
+import NavBar from "../components/NavBar";
 
 function HomePage() {
 
@@ -65,9 +66,15 @@ function HomePage() {
 
     return (
         <div id='home-page' className="bg-dark flex flex-col w-11/12 h-full rounded-lg shadow-lg text-primary p-8 overflow-x-hidden">
-            <Header />
-            <section id="projects-section" className="grid grid-cols-2 gap-4 mt-2">
-                <h1 className="text-4xl text-primary mb-4 col-span-2">Projects</h1>
+            <NavBar />
+            <section id="home-section" className="flex flex-col mb-16 mt-16">
+                <span className="text-5xl text-primary font-light mt-16 mb-4">
+                    Hello, my name is
+                </span>
+                <Header />
+            </section>
+            <section id="projects-section" className="grid grid-cols-2 gap-4 mt-20">
+                <h1 className="text-5xl text-primary mb-4 col-span-2">What have I done?</h1>
                 {projects.map((project, index) => (
                     <ProjectCard 
                         key={index} 
@@ -77,8 +84,8 @@ function HomePage() {
                     />
                 ))}
             </section>
-            <section id="skills-section" className="grid grid-cols-3 gap-4 mt-8">
-                <h1 className="text-4xl text-primary mb-4 col-span-3">Skills</h1>
+            <section id="skills-section" className="grid grid-cols-3 gap-4 mt-16">
+                <h1 className="text-5xl text-primary mb-4 col-span-3">My Skills Set</h1>
                 {skill_categories.map((category, index) => (
                     <div key={index} className="bg-card p-4 rounded-lg shadow-md">
                         <h2 className="text-xl font-bold mb-2">{category.category}</h2>
@@ -90,8 +97,8 @@ function HomePage() {
                     </div>
                 ))}
             </section>
-            <section id="resumes-section" className="flex flex-col gap-4 mt-8">
-                <h1 className="text-4xl text-primary mb-4">Resumes</h1>
+            <section id="resumes-section" className="flex flex-col gap-4 mt-16">
+                <h1 className="text-5xl text-primary mb-4">Resumes</h1>
                 <div className="grid grid-cols-3 gap-4">
                     {resumes.map((resume, index) => (
                         <div key={index} className="bg-card p-4 rounded-lg shadow-md">
@@ -100,9 +107,9 @@ function HomePage() {
                     ))}
                 </div>
             </section>
-            <section id="contact-section" className="grid grid-cols-2 gap-2 mt-8">
+            <section id="contact-section" className="grid grid-cols-2 gap-2 mt-16">
                 <div className="flex flex-col">
-                    <h1 className="text-4xl text-primary mb-4">Contact</h1>
+                    <h1 className="text-5xl text-primary mb-8">Contact Me!</h1>
                     {contact_links.map((link, index) => (
                         <a 
                             key={index} 
@@ -114,7 +121,7 @@ function HomePage() {
                     ))}
                 </div>
                 <div className="flex flex-col">
-                    <h2 className="text-4xl text-primary mb-4">Email</h2>
+                    <h2 className="text-4xl text-primary mb-4 pt-16">Email</h2>
                     <form action={console.log("email sent")}>
                         <input 
                             type="text"
