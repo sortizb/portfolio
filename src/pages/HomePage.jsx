@@ -1,68 +1,11 @@
 import Header from "../components/Header";
 import ProjectCard from "../components/ProjectCard";
 import NavBar from "../components/NavBar";
+import { Carousel } from "react-responsive-carousel";
+import { projects, skill_categories, resumes, contact_links } from "../modules/modules";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function HomePage() {
-
-    // Placeholder projects array, later fetched from database
-    let projects = [
-        {
-            title: "Project 1",
-            short_desc: "This is a short description of project 1.",
-            tags: ["React", "JavaScript", "CSS"]
-        },
-        {
-            title: "Project 2",
-            short_desc: "This is a short description of project 2.",
-            tags: ["Node.js", "Express", "MongoDB"]
-        },
-        {
-            title: "Project 3",
-            short_desc: "This is a short description of project 3.",
-            tags: ["Python", "Flask", "SQLAlchemy"]
-        }
-    ]
-
-    let skill_categories = [
-        {
-            category: "Frontend",
-            skills: ["HTML", "CSS", "JavaScript", "React"]
-        },
-        {
-            category: "Backend",
-            skills: ["Node.js", "Express", "Python", "Flask"]
-        },
-        {
-            category: "Database",
-            skills: ["MongoDB", "MySQL", "PostgreSQL"]
-        },
-        {
-            category: "DevOps",
-            skills: ["Docker", "Kubernetes", "AWS"]
-        }
-    ]
-
-    let resumes = [
-        "Software Engineer Resume",
-        "Cybersecurity Resume",
-        "Artifitial Intelligence Resume"
-    ]
-
-    let contact_links = [
-        {
-            name: "Email",
-            url: "myemail@gmail.com"
-        },
-        {
-            name: "LinkedIn",
-            url: "https://www.linkedin.com/in/myprofile"
-        },
-        {
-            name: "GitHub",
-            url: "mygithub"
-        }
-    ]
-
 
     return (
         <div id='home-page' className="bg-dark flex flex-col w-11/12 h-full rounded-lg shadow-lg text-primary p-8 overflow-x-hidden">
@@ -73,16 +16,31 @@ function HomePage() {
                 </span>
                 <Header />
             </section>
-            <section id="projects-section" className="grid grid-cols-2 gap-4 mt-20">
-                <h1 className="text-5xl text-primary mb-4 col-span-2">What have I done?</h1>
-                {projects.map((project, index) => (
-                    <ProjectCard 
-                        key={index} 
-                        title={project.title} 
-                        short_desc={project.short_desc} 
-                        tags={project.tags} 
-                    />
-                ))}
+            <section id="projects-section" className="mt-20">
+                <h1 className="text-5xl text-primary mb-4">What have I done?</h1>
+                <div className="p-8">
+                    <Carousel
+                        axis="horizontal"
+                        showArrows={false}
+                        showStatus={false}
+                        showIndicators={true}
+                        showThumbs={false}
+                        infiniteLoop={true}
+                        autoPlay={true}
+                        interval={3000}
+                        transitionTime={500}
+                    >
+                        {projects.map((project, index) => (
+                            <ProjectCard 
+                                key={index} 
+                                title={project.title} 
+                                short_desc={project.short_desc} 
+                                tags={project.tags} 
+                            />
+                        ))}
+
+                    </Carousel>
+                </div>
             </section>
             <section id="skills-section" className="grid grid-cols-3 gap-4 mt-16">
                 <h1 className="text-5xl text-primary mb-4 col-span-3">My Skills Set</h1>
