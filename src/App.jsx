@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage.jsx';
 function App() {
 
   return (
-    <div id='container' className='bg-contrast w-svw h-svh items-center flex flex-col py-8 font-roboto'>
+    <div id='container' className='bg-contrast w-full h-full items-center font-roboto pb-4 pt-4 pr-8 pl-8'>
       <HomePage />
     </div>
   )

@@ -8,9 +8,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 function HomePage() {
 
     return (
-        <div id='home-page' className="bg-dark flex flex-col w-11/12 h-full rounded-lg shadow-lg text-primary p-8 overflow-x-hidden">
+        <div id='home-page' className="bg-dark flex flex-col w-full h-full rounded-lg shadow-lg text-primary p-8 overflow-x-hidden">
             <NavBar />
-            <section id="home-section" className="flex flex-col mb-16 mt-16">
+            <section id="header-section" className=" flex flex-col mb-16 mt-16">
                 <span className="text-5xl text-primary font-light mt-16 mb-4">
                     Hello, my name is
                 </span>
@@ -45,11 +45,11 @@ function HomePage() {
             <section id="skills-section" className="grid grid-cols-3 gap-4 mt-16">
                 <h1 className="text-5xl text-primary mb-4 col-span-3">My Skills Set</h1>
                 {skill_categories.map((category, index) => (
-                    <div key={index} className="bg-card p-4 rounded-lg shadow-md">
+                    <div key={index} className="bg-card p-4 rounded-lg shadow-md text-thirtiary">
                         <h2 className="text-xl font-bold mb-2">{category.category}</h2>
                         <ul className="list-disc pl-5">
                             {category.skills.map((skill, skillIndex) => (
-                                <li key={skillIndex} className="text-primary">{skill}</li>
+                                <li key={skillIndex}>{skill}</li>
                             ))}
                         </ul>
                     </div>

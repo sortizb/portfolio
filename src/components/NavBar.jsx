@@ -4,7 +4,10 @@ function NavBar() {
             <h3 className="text-lg text-primary">Santiago Ortiz Betancourt</h3>
             <ul className="flex flex-row gap-4">
                 <li>
-                    <a href="#home-section" className="text-secondary hover:text-primary">Home</a>
+                    <a href="#header-section" className="text-secondary hover:text-primary">Home</a>
+                </li>
+                <li>
+                    <a href="#projects-section" className="text-secondary hover:text-primary">Projects</a>
                 </li>
                 <li>
                     <a href="#skills-section" className="text-secondary hover:text-primary">Skills</a>
